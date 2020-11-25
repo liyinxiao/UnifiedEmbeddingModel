@@ -1,5 +1,5 @@
 import torch
-from torch import nn, optim, utils
+from torch import nn, utils
 import torch.nn.functional as F
 import numpy as np
 
