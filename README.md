@@ -3,7 +3,7 @@ Implementation of unified embedding model from Embedding-based Retrieval in Face
 
 ## Unified Embedding Model Architecture
 
-<img src="https://github.com/liyinxiao/UnifiedEmbeddingModel/blob/main/assets/model.png" width=750 />
+<img src="https://github.com/liyinxiao/UnifiedEmbeddingModel/blob/main/assets/model_architecture.png" width=750 />
 
 ## Example
 ```
