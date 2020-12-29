@@ -103,7 +103,7 @@ if __name__ == '__main__':
     # Encoder initialization
     query_encoder = QueryEncoder(query_input_size).to(device)
     document_encoder = DocumentEncoder(document_input_size).to(device)
-    # Optimier initialization
+    # Optimizer initialization
     query_optimizer = torch.optim.Adam(
         query_encoder.parameters(), lr=learning_rate)
     document_optimizer = torch.optim.Adam(
