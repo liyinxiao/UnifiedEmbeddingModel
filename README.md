@@ -1,6 +1,6 @@
 # UnifiedEmbeddingModel
 
-An implementation of unified embedding model from Embedding-based Retrieval in Facebook Search (https://arxiv.org/abs/2006.11632).
+An implementation of the unified embedding model from Embedding-based Retrieval in Facebook Search (https://arxiv.org/abs/2006.11632).
 
 ## Unified Embedding Model Architecture
 
