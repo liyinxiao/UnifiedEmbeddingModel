@@ -62,7 +62,9 @@ class Trainer():
         self.query_encoder.train()
         self.document_encoder.train()
         running_loss = 0
-        for _, (query_inputs, positive_document_inputs, negative_document_inputs) in enumerate(data_loader):
+        print(f'Epoch {epoch}')
+        for batch, (query_inputs, positive_document_inputs, negative_document_inputs) in enumerate(data_loader):
+            print(f'Epoch {epoch}, batch {batch}...')
             # Forward pass
             anchor = query_encoder(query_inputs)
             positive = document_encoder(positive_document_inputs)
@@ -101,8 +103,10 @@ if __name__ == '__main__':
     query_input_size = 20
     document_input_size = 15
     # Encoder initialization
+    print('Encoder initialization...')
     query_encoder = QueryEncoder(query_input_size).to(device)
     document_encoder = DocumentEncoder(document_input_size).to(device)
+    print('Optimizer initialization...')
     # Optimizer initialization
     query_optimizer = torch.optim.Adam(
         query_encoder.parameters(), lr=learning_rate)
@@ -112,9 +116,14 @@ if __name__ == '__main__':
     triplet_loss = nn.TripletMarginWithDistanceLoss(
         distance_function=lambda x, y: 1.0 - F.cosine_similarity(x, y), margin=margin)
     # Trainer initialization
+    print('Trainer initialization...')
     trainer = Trainer(query_encoder, document_encoder,
                       triplet_loss, query_optimizer, document_optimizer)
-    # load dummy data
+    # Load dummy data
+    print('Load dummy data...')
     data_loader = load_dummy_data(query_input_size, document_input_size)
+
+    # Training
+    print('Training...')
     for epoch in range(num_epochs):
         trainer.train(data_loader, epoch)
